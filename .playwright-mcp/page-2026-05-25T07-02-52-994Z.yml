@@ -1,0 +1,284 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: ⚡
+        - generic [ref=e6]: FORGEMIND
+        - generic [ref=e7]: v0.2.0-sessions
+      - generic [ref=e8]:
+        - generic [ref=e69]: f6a5c67742c7
+        - button "RESET" [ref=e9]
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e13]:
+          - generic [ref=e15]:
+            - button "Session 3 ▼" [ref=e70]:
+              - generic [ref=e18]: Session 3
+              - generic [ref=e19]: ▼
+            - button "+ NEW" [ref=e20]
+          - generic [ref=e21]:
+            - generic [ref=e73]: 创建一个NFT拍卖合约：1）卖家可以创建拍卖，设定底价和持续时间；2）买家可以出价，必须高于当前最高价；3）拍卖结束后最高出价者获得NFT；4）卖家收取最高出价的ETH，平台收取2%手续费；5）支持英式拍卖模式
+            - generic [ref=e83]: "Generated NFTAuction Audit: PASS Sandbox: error"
+          - generic [ref=e27]:
+            - textbox "Modify your contract..." [ref=e76]
+            - button "SEND" [disabled] [ref=e29]
+        - generic [ref=e30]:
+          - generic [ref=e36]: agent.log
+          - generic [ref=e37]:
+            - generic [ref=e84]:
+              - generic [ref=e85]: "[00]"
+              - generic [ref=e86]: 🎯
+              - generic [ref=e87]: "orchestrator:"
+              - generic [ref=e88]: "Starting contract generation for: 创建一个NFT拍卖合约：1）卖家可以创建拍卖，设定底价和持续时间；2）买家可以出价，必须高于当前最高价；3）拍卖结束后最高出价者获得NFT；4）卖家收取最高出价..."
+            - generic [ref=e89]:
+              - generic [ref=e90]: "[01]"
+              - generic [ref=e91]: 👨‍💻
+              - generic [ref=e92]: "coder:"
+              - generic [ref=e93]: "Iteration 1: Generating Solidity code..."
+            - generic [ref=e94]:
+              - generic [ref=e95]: "[02]"
+              - generic [ref=e96]: 👨‍💻
+              - generic [ref=e97]: "coder:"
+              - generic [ref=e98]: "Generated contract: NFTAuction"
+            - generic [ref=e99]:
+              - generic [ref=e100]: "[03]"
+              - generic [ref=e101]: 🔍
+              - generic [ref=e102]: "reviewer:"
+              - generic [ref=e103]: Running security audit...
+            - generic [ref=e104]:
+              - generic [ref=e105]: "[04]"
+              - generic [ref=e106]: 🔍
+              - generic [ref=e107]: "reviewer:"
+              - generic [ref=e108]: Audit PASSED - no high-severity issues found
+            - generic [ref=e109]:
+              - generic [ref=e110]: "[05]"
+              - generic [ref=e111]: 🎯
+              - generic [ref=e112]: "orchestrator:"
+              - generic [ref=e113]: Generating contract topology graph...
+            - generic [ref=e114]:
+              - generic [ref=e115]: "[06]"
+              - generic [ref=e116]: 🎯
+              - generic [ref=e117]: "orchestrator:"
+              - generic [ref=e118]: "Graph generated: 21 nodes, 20 edges"
+            - generic [ref=e119]:
+              - generic [ref=e120]: "[07]"
+              - generic [ref=e121]: 🎯
+              - generic [ref=e122]: "orchestrator:"
+              - generic [ref=e123]: Deploying to Anvil sandbox...
+            - generic [ref=e124]:
+              - generic [ref=e125]: "[08]"
+              - generic [ref=e126]: 🎯
+              - generic [ref=e127]: "orchestrator:"
+              - generic [ref=e128]: "Deployment issue: solc not found at 'solc'. Install foundry: curl -L https://foundry.paradigm.xyz | bash"
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - button "📄 CODE" [ref=e41]
+          - button "🔷 TOPOLOGY" [ref=e42]
+          - generic [ref=e130]: "AUDIT: PASS"
+        - application [ref=e132]:
+          - generic [ref=e134]:
+            - generic:
+              - generic:
+                - img:
+                  - group "Edge from contract-NFTAuction to contract-ReentrancyGuard" [ref=e135] [cursor=pointer]:
+                    - generic [ref=e138]:
+                      - generic: inherits
+                - img:
+                  - group "Edge from contract-NFTAuction to contract-Ownable" [ref=e140] [cursor=pointer]:
+                    - generic [ref=e143]:
+                      - generic: inherits
+                - img:
+                  - group "Edge from contract-NFTAuction to contract-ERC721Holder" [ref=e145] [cursor=pointer]:
+                    - generic [ref=e148]:
+                      - generic: inherits
+                - img:
+                  - group "Edge from contract-NFTAuction to func-createAuction-0" [ref=e150] [cursor=pointer]:
+                    - generic [ref=e153]:
+                      - generic: external
+                - img:
+                  - group "Edge from contract-NFTAuction to func-placeBid-1" [ref=e155] [cursor=pointer]:
+                    - generic [ref=e158]:
+                      - generic: external
+                - img:
+                  - group "Edge from contract-NFTAuction to var-nextAuctionId" [ref=e160] [cursor=pointer]:
+                    - generic [ref=e163]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-auctions" [ref=e165] [cursor=pointer]:
+                    - generic [ref=e168]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-sellerAuctions" [ref=e170] [cursor=pointer]:
+                    - generic [ref=e173]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-seller" [ref=e175] [cursor=pointer]:
+                    - generic [ref=e178]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-nftContract" [ref=e180] [cursor=pointer]:
+                    - generic [ref=e183]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-tokenId" [ref=e185] [cursor=pointer]:
+                    - generic [ref=e188]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-reservePrice" [ref=e190] [cursor=pointer]:
+                    - generic [ref=e193]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-endTime" [ref=e195] [cursor=pointer]:
+                    - generic [ref=e198]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-highestBidder" [ref=e200] [cursor=pointer]:
+                    - generic [ref=e203]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-highestBid" [ref=e205] [cursor=pointer]:
+                    - generic [ref=e208]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-ended" [ref=e210] [cursor=pointer]:
+                    - generic [ref=e213]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-nftTransferred" [ref=e215] [cursor=pointer]:
+                    - generic [ref=e218]:
+                      - generic: state
+                - img:
+                  - group "Edge from contract-NFTAuction to var-minRequired" [ref=e220] [cursor=pointer]:
+                    - generic [ref=e223]:
+                      - generic: state
+                - img:
+                  - group "Edge from mod-validAuction to func-placeBid-1" [ref=e225] [cursor=pointer]:
+                    - generic [ref=e228]:
+                      - generic: modifies
+                - img:
+                  - group "Edge from mod-auctionActive to func-placeBid-1" [ref=e230] [cursor=pointer]:
+                    - generic [ref=e233]:
+                      - generic: modifies
+              - generic:
+                - group [ref=e235]:
+                  - generic [ref=e236]:
+                    - generic [ref=e238]: NFTAuction
+                    - generic [ref=e239]: contract
+                - group [ref=e241]:
+                  - generic [ref=e242]:
+                    - generic [ref=e244]: ReentrancyGuard
+                    - generic [ref=e245]: inherited
+                - group [ref=e247]:
+                  - generic [ref=e248]:
+                    - generic [ref=e250]: Ownable
+                    - generic [ref=e251]: inherited
+                - group [ref=e253]:
+                  - generic [ref=e254]:
+                    - generic [ref=e256]: ERC721Holder
+                    - generic [ref=e257]: inherited
+                - group [ref=e259]:
+                  - generic [ref=e260]:
+                    - generic [ref=e262]: createAuction
+                    - generic [ref=e263]: external
+                    - generic [ref=e264]:
+                      - generic [ref=e265]: address nftContract
+                      - generic [ref=e266]: uint256 tokenId
+                      - generic [ref=e267]: uint256 reservePrice
+                      - generic [ref=e268]: uint256 duration
+                - group [ref=e270]:
+                  - generic [ref=e271]:
+                    - generic [ref=e273]: placeBid
+                    - generic [ref=e274]: external payable
+                    - generic [ref=e276]: uint256 auctionId
+                - group [ref=e278]:
+                  - generic [ref=e279]:
+                    - generic [ref=e281]: nextAuctionId
+                    - generic [ref=e282]: uint256 (public)
+                - group [ref=e284]:
+                  - generic [ref=e285]:
+                    - generic [ref=e287]: auctions
+                    - generic [ref=e288]: mapping(uint256 => Auction) (public)
+                - group [ref=e290]:
+                  - generic [ref=e291]:
+                    - generic [ref=e293]: sellerAuctions
+                    - generic [ref=e294]: mapping(address => uint256[]) (public)
+                - group [ref=e296]:
+                  - generic [ref=e297]:
+                    - generic [ref=e299]: seller
+                    - generic [ref=e300]: address (internal)
+                - group [ref=e302]:
+                  - generic [ref=e303]:
+                    - generic [ref=e305]: nftContract
+                    - generic [ref=e306]: address (internal)
+                - group [ref=e308]:
+                  - generic [ref=e309]:
+                    - generic [ref=e311]: tokenId
+                    - generic [ref=e312]: uint256 (internal)
+                - group [ref=e314]:
+                  - generic [ref=e315]:
+                    - generic [ref=e317]: reservePrice
+                    - generic [ref=e318]: uint256 (internal)
+                - group [ref=e320]:
+                  - generic [ref=e321]:
+                    - generic [ref=e323]: endTime
+                    - generic [ref=e324]: uint256 (internal)
+                - group [ref=e326]:
+                  - generic [ref=e327]:
+                    - generic [ref=e329]: highestBidder
+                    - generic [ref=e330]: address (internal)
+                - group [ref=e332]:
+                  - generic [ref=e333]:
+                    - generic [ref=e335]: highestBid
+                    - generic [ref=e336]: uint256 (internal)
+                - group [ref=e338]:
+                  - generic [ref=e339]:
+                    - generic [ref=e341]: ended
+                    - generic [ref=e342]: bool (internal)
+                - group [ref=e344]:
+                  - generic [ref=e345]:
+                    - generic [ref=e347]: nftTransferred
+                    - generic [ref=e348]: bool (internal)
+                - group [ref=e350]:
+                  - generic [ref=e351]:
+                    - generic [ref=e353]: minRequired
+                    - generic [ref=e354]: uint256 (internal)
+                - group [ref=e356]:
+                  - generic [ref=e357]:
+                    - generic [ref=e359]: 🔒 validAuction
+                    - generic [ref=e360]: modifier
+                - group [ref=e362]:
+                  - generic [ref=e363]:
+                    - generic [ref=e365]: 🔒 auctionActive
+                    - generic [ref=e366]: modifier
+          - img
+          - generic "Control Panel" [ref=e368]:
+            - button "Zoom In" [ref=e369] [cursor=pointer]:
+              - img [ref=e370]
+            - button "Zoom Out" [ref=e372] [cursor=pointer]:
+              - img [ref=e373]
+            - button "Fit View" [ref=e375] [cursor=pointer]:
+              - img [ref=e376]
+            - button "Toggle Interactivity" [ref=e378] [cursor=pointer]:
+              - img [ref=e379]
+          - img "Mini Map" [ref=e382]
+        - generic [ref=e405]:
+          - generic [ref=e406]: "3 finding(s):"
+          - generic [ref=e407]:
+            - generic [ref=e408]: "[MEDIUM]"
+            - text: Missing Access Control
+            - generic [ref=e409]: — Public/state-changing function without access control modifier.
+          - generic [ref=e410]:
+            - generic [ref=e411]: "[MEDIUM]"
+            - text: Missing Access Control
+            - generic [ref=e412]: — Public/state-changing function without access control modifier.
+          - generic [ref=e413]:
+            - generic [ref=e414]: "[LOW]"
+            - text: Floating Pragma
+            - generic [ref=e415]: — Lock pragma to a specific version to prevent unexpected behavior with compiler updates.
+      - generic [ref=e55]:
+        - generic [ref=e56]: 🎮
+        - paragraph [ref=e57]: Sandbox playground
+        - paragraph [ref=e58]: Deploy a contract to interact with its functions
+  - button "Open Next.js Dev Tools" [ref=e64] [cursor=pointer]:
+    - img [ref=e65]
+  - alert [ref=e68]
