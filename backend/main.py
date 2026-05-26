@@ -2,7 +2,7 @@ from litestar import Litestar
 from litestar.config.cors import CORSConfig
 
 from backend.routes.contracts import generate_contract
-from backend.routes.sandbox import call_contract
+from backend.routes.sandbox import call_contract, estimate_gas
 from backend.routes.sessions import (
     create_session,
     delete_session,
@@ -22,6 +22,7 @@ app = Litestar(
     route_handlers=[
         generate_contract,
         call_contract,
+        estimate_gas,
         visualize_contract,
         create_session,
         list_sessions,

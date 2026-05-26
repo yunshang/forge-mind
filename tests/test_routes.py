@@ -79,7 +79,21 @@ class TestSandboxCallRoute:
             "is_read": True,
         })
 
-        # Should return either success (if Anvil is running) or error (if not)
+        assert response.status_code == 201
+        data = response.json()
+        assert data["status"] in ("success", "error")
+
+
+class TestSandboxEstimateRoute:
+    def test_estimate_requires_connection(self, client: TestClient):
+        response = client.post("/api/sandbox/estimate", json={
+            "contract_address": "0x1234567890123456789012345678901234567890",
+            "abi": [{"type": "function", "name": "get", "inputs": [], "outputs": [{"name": "", "type": "uint256"}], "stateMutability": "view"}],
+            "function_name": "get",
+            "args": [],
+            "value": 0,
+        })
+
         assert response.status_code == 201
         data = response.json()
         assert data["status"] in ("success", "error")

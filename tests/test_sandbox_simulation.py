@@ -78,8 +78,9 @@ class TestExtractFunctions:
 
 
 class TestCompile:
+    @patch("backend.skills.sandbox_simulation.SolcDetector.find_solc", return_value="/usr/bin/solc")
     @patch("backend.skills.sandbox_simulation.subprocess.run")
-    def test_compile_success(self, mock_run: MagicMock, skill: SandboxSimulationSkill):
+    def test_compile_success(self, mock_run: MagicMock, mock_find_solc: MagicMock, skill: SandboxSimulationSkill):
         mock_run.return_value = MagicMock(
             returncode=0,
             stdout=json.dumps({
@@ -99,8 +100,9 @@ class TestCompile:
         assert "bytecode" in result
         assert len(result["abi"]) == 4
 
+    @patch("backend.skills.sandbox_simulation.SolcDetector.find_solc", return_value="/usr/bin/solc")
     @patch("backend.skills.sandbox_simulation.subprocess.run")
-    def test_compile_failure(self, mock_run: MagicMock, skill: SandboxSimulationSkill):
+    def test_compile_failure(self, mock_run: MagicMock, mock_find_solc: MagicMock, skill: SandboxSimulationSkill):
         mock_run.return_value = MagicMock(returncode=1, stdout="", stderr="Error: Expected identifier")
 
         result = skill._compile("invalid code", "Bad")
@@ -108,12 +110,13 @@ class TestCompile:
         assert "error" in result
         assert "Compilation failed" in result["error"]
 
-    @patch("backend.skills.sandbox_simulation.subprocess.run", side_effect=FileNotFoundError)
-    def test_compile_solc_not_found(self, mock_run: MagicMock, skill: SandboxSimulationSkill):
+    @patch("backend.skills.sandbox_simulation.SolcDetector.get_install_instructions", return_value="install solc")
+    @patch("backend.skills.sandbox_simulation.SolcDetector.find_solc", return_value=None)
+    def test_compile_solc_not_found(self, mock_find_solc: MagicMock, mock_get_install_instructions: MagicMock, skill: SandboxSimulationSkill):
         result = skill._compile("code", "C")
 
         assert "error" in result
-        assert "solc not found" in result["error"]
+        assert result["error"] == "install solc"
 
 
 class TestDeploy:

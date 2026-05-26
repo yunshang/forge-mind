@@ -1,5 +1,4 @@
 import json
-import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -7,6 +6,7 @@ from pathlib import Path
 from web3 import Web3
 
 from backend.config import settings
+from backend.utils.solc_detector import SolcDetector
 
 from .base import BaseSkill
 
@@ -59,11 +59,14 @@ class SandboxSimulationSkill(BaseSkill):
             contract_path = Path(tmpdir) / f"{contract_name}.sol"
             contract_path.write_text(solidity_code)
 
-            output_path = Path(tmpdir) / "output.json"
+            solc_path = SolcDetector.find_solc()
+            if not solc_path:
+                return {"error": SolcDetector.get_install_instructions()}
+
             try:
                 result = subprocess.run(
                     [
-                        settings.solc_path,
+                        solc_path,
                         "--combined-json",
                         "abi,bin",
                         "--optimize",
@@ -76,8 +79,6 @@ class SandboxSimulationSkill(BaseSkill):
                     text=True,
                     timeout=30,
                 )
-            except FileNotFoundError:
-                return {"error": f"solc not found at '{settings.solc_path}'. Install foundry: curl -L https://foundry.paradigm.xyz | bash"}
             except subprocess.TimeoutExpired:
                 return {"error": "Compilation timed out (30s)"}
 
@@ -102,8 +103,10 @@ class SandboxSimulationSkill(BaseSkill):
                 return {"error": f"Contract '{contract_name}' not found. Available: {available}"}
 
             contract_data = combined["contracts"][contract_key]
+            raw_abi = contract_data["abi"]
+            parsed_abi = json.loads(raw_abi) if isinstance(raw_abi, str) else raw_abi
             return {
-                "abi": json.loads(contract_data["abi"]) if isinstance(contract_data["abi"], str) else contract_data["abi"],
+                "abi": parsed_abi,
                 "bytecode": contract_data["bin"],
             }
 
