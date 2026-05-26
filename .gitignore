@@ -11,3 +11,5 @@ out/
 .DS_Store
 *.lock
 !package-lock.json
+frontend/frontend.log
+*.log

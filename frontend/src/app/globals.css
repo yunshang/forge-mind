@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  /* 中国特色明亮色系 - Chinese Bright Theme */
+  --background: #FAFAF9;
+  --foreground: #1F2937;
+  --card-background: #FFFFFF;
+  --border-color: #E5E7EB;
+  
+  /* 中国风强调色 */
+  --chinese-red: #DC2626;
+  --chinese-gold: #F59E0B;
+  --jade-green: #059669;
+  
+  /* 功能色 */
+  --primary: #3B82F6;
+  --success: #059669;
+  --warning: #F59E0B;
+  --danger: #DC2626;
+  
+  /* 代码/编辑器 */
+  --code-background: #F8FAFC;
+  --code-foreground: #334155;
+  --code-border: #E2E8F0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card-background);
+  --color-border: var(--border-color);
+  --color-chinese-red: var(--chinese-red);
+  --color-chinese-gold: var(--chinese-gold);
+  --color-jade-green: var(--jade-green);
+  --color-primary: var(--primary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-code-bg: var(--code-background);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+/* Custom scrollbar - 明亮主题 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Monaco editor overrides */
+.monaco-editor {
+  border-radius: 0 !important;
+}
+
+/* React Flow 明亮主题 */
+.react-flow__node {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+.react-flow__edge-textbg {
+  fill: #F1F5F9 !important;
+}
+
+.react-flow__edge-text {
+  fill: #475569 !important;
+  font-size: 10px !important;
+}
+
+.react-flow__controls button {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #374151 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.react-flow__controls button:hover {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+.react-flow__minimap {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__background {
+  background-color: #FAFAF9 !important;
+}
+
+/* 全局组件样式优化 */
+.card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  color: #78350F;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* 状态指示器 */
+.status-success {
+  color: #059669;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+}
+
+.status-warning {
+  color: #D97706;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+}
+
+.status-danger {
+  color: #DC2626;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+
+/* 输入框样式 */
+.input-field {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
